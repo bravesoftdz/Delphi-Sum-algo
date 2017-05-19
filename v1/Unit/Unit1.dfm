@@ -41,13 +41,13 @@ object Form1: TForm1
     Width = 110
     Height = 13
     Caption = 'Created by Apuromafo'
-    OnClick = Label4Click
   end
   object Edit1: TEdit
     Left = 24
     Top = 40
     Width = 33
     Height = 21
+    NumbersOnly = True
     TabOrder = 0
     Text = '0'
   end
@@ -56,6 +56,7 @@ object Form1: TForm1
     Top = 40
     Width = 49
     Height = 21
+    NumbersOnly = True
     TabOrder = 1
     Text = '1000'
   end
@@ -82,6 +83,7 @@ object Form1: TForm1
     Top = 40
     Width = 57
     Height = 21
+    NumbersOnly = True
     TabOrder = 4
     Text = '7'
   end

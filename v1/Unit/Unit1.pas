@@ -19,7 +19,6 @@ type
     Label4: TLabel;
     RadioGroup1: TRadioGroup;
     procedure Button1Click(Sender: TObject);
-    procedure Label4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,13 +34,15 @@ implementation
 
 procedure TForm1.Button1Click(Sender: TObject);
 var
-  n, test, sum: integer;
+  n, test, sum, d: integer;
 begin
-  Memo1.text := 'Welcome you was pressed the button and now im';
-  Memo1.Lines.Add('Working From ' + Edit1.text + ' to ' + Edit2.text +
-    ' Divisible by ' + Edit3.text);
+  Memo1.Clear;
+  n := 0;
+  // Memo1.text := 'Welcome you was pressed the button and now im';
+  Memo1.Lines.Add('-----------Working From ' + Edit1.text + ' to ' + Edit2.text
+    + ' with value ' + Edit3.text + '-----------');
   for n := strtoint(Edit1.text) { from 0 } to strtoint(Edit2.text)
-  { to 1000 or any number } do { Loop for all  digit numbers }
+  { to 1000 } do { Loop for all  digit numbers }
   begin
     test := n; { Make "test" the work field }
     sum := test mod 10; { Put the low order digit of "test" into "sum" }
@@ -60,32 +61,35 @@ begin
           Case sum mod strtoint(Edit3.text) of
             { P Divide a primary integer by the text 3, as value - Mod returns the remainder  if are divisible , reminder is 0 }
             0:
-              { if wana not show the 0 you must enable this code from // to nothing }
-              { if (n =0) then }
-              { else }
-              Memo1.Lines.Add('The number ' + inttostr(n) + ' the sum is ' +
-                inttostr(sum) + ' divisible by ' + Edit3.text);
-            // beep;
+              begin
+                { if wana not show the 0 you must enable this code from // to nothing }
+                { if (n =0) then }
+                { else }
+                Memo1.Lines.Add('The number ' + inttostr(n) + ' the sum is ' +
+                  inttostr(sum) + ' divisible by ' + Edit3.text)
+
+                // beep;
+              end;
           end;
         end;
+
       1:
         begin
           if sum = strtoint(Edit3.text) then
+          begin
             { P Divide a primary integer by the text 3, as value - Mod returns the remainder  if are divisible , reminder is 0 }
             { if wana not show the 0 you must enable this code from // to nothing }
             { if (n =0) then }
             { else }
             Memo1.Lines.Add('The number ' + inttostr(n) + ' the sum is ' +
               inttostr(sum) + ' equal to ' + Edit3.text);
+          end;
           // beep;
-        end;
-    End;
-  end; { end begin }
-end; { end procedure }
+        end; { end begin }
+    end; { end procedure }
 
-procedure TForm1.Label4Click(Sender: TObject);
-begin
-  Label4.Caption := 'Created by Apuromafo for RTN Forum crackme?';
+  end;
+  Memo1.Lines.Add('Total =' + inttostr(Memo1.Lines.Count - 1));
 end;
 
 end. { end program }
