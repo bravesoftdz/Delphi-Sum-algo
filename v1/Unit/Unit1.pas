@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls;
+  Dialogs, StdCtrls, Vcl.ExtCtrls;
 
 type
   TForm1 = class(TForm)
@@ -17,6 +17,7 @@ type
     Edit3: TEdit;
     Label3: TLabel;
     Label4: TLabel;
+    RadioGroup1: TRadioGroup;
     procedure Button1Click(Sender: TObject);
     procedure Label4Click(Sender: TObject);
   private
@@ -53,17 +54,32 @@ begin
     { if (n mod sum = 0) and (n div sum =7) }
     { then }
 
-    Case sum mod strtoint(Edit3.text) of
-      { P Divide a primary integer by the text 3, as value - Mod returns the remainder  if are divisible , reminder is 0 }
+    Case RadioGroup1.ItemIndex of
       0:
-        { if wana not show the 0 you must enable this code from // to nothing }
-        { if (n =0) then }
-        { else }
-        Memo1.Lines.Add('The number ' + inttostr(n) + ' the sum is ' +
-          inttostr(sum) + ' divisible by ' + Edit3.text);
-
-    else
-    end; { end case }
+        begin
+          Case sum mod strtoint(Edit3.text) of
+            { P Divide a primary integer by the text 3, as value - Mod returns the remainder  if are divisible , reminder is 0 }
+            0:
+              { if wana not show the 0 you must enable this code from // to nothing }
+              { if (n =0) then }
+              { else }
+              Memo1.Lines.Add('The number ' + inttostr(n) + ' the sum is ' +
+                inttostr(sum) + ' divisible by ' + Edit3.text);
+            // beep;
+          end;
+        end;
+      1:
+        begin
+          if sum = strtoint(Edit3.text) then
+            { P Divide a primary integer by the text 3, as value - Mod returns the remainder  if are divisible , reminder is 0 }
+            { if wana not show the 0 you must enable this code from // to nothing }
+            { if (n =0) then }
+            { else }
+            Memo1.Lines.Add('The number ' + inttostr(n) + ' the sum is ' +
+              inttostr(sum) + ' equal to ' + Edit3.text);
+          // beep;
+        end;
+    End;
   end; { end begin }
 end; { end procedure }
 

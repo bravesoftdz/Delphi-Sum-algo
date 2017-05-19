@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 192
   Top = 125
   BorderStyle = bsDialog
-  Caption = 'digit sum there are divisible by x value by Apuromafo'
+  Caption = 'digit sum algo by  Apuromafo'
   ClientHeight = 441
   ClientWidth = 912
   Color = clBtnFace
@@ -31,9 +31,9 @@ object Form1: TForm1
   object Label3: TLabel
     Left = 152
     Top = 24
-    Width = 38
+    Width = 39
     Height = 13
-    Caption = 'Divisible'
+    Caption = 'Algoritm'
   end
   object Label4: TLabel
     Left = 24
@@ -69,13 +69,12 @@ object Form1: TForm1
     OnClick = Button1Click
   end
   object Memo1: TMemo
-    Left = 368
-    Top = 24
+    Left = 431
+    Top = 8
     Width = 305
     Height = 401
     Lines.Strings = (
-      'Welcome press Start to calculate the values there are '
-      'divisibles (multiplo)')
+      'Welcome press Start to calculate the values ')
     TabOrder = 3
   end
   object Edit3: TEdit
@@ -85,5 +84,17 @@ object Form1: TForm1
     Height = 21
     TabOrder = 4
     Text = '7'
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 207
+    Top = 8
+    Width = 185
+    Height = 105
+    Caption = 'Algo:'
+    ItemIndex = 0
+    Items.Strings = (
+      'Sum Divisible (mod)'
+      'Sum  value ( = )')
+    TabOrder = 5
   end
 end
