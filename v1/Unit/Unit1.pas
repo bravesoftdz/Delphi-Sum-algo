@@ -18,7 +18,11 @@ type
     Label3: TLabel;
     Label4: TLabel;
     RadioGroup1: TRadioGroup;
+    Button2: TButton;
+    Button3: TButton;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,6 +31,7 @@ type
 
 var
   Form1: TForm1;
+  Stop: Boolean;
 
 implementation
 
@@ -41,9 +46,12 @@ begin
   // Memo1.text := 'Welcome you was pressed the button and now im';
   Memo1.Lines.Add('-----------Working From ' + Edit1.text + ' to ' + Edit2.text
     + ' with value ' + Edit3.text + '-----------');
+  Application.ProcessMessages;
+  RadioGroup1.Enabled := False;
   for n := strtoint(Edit1.text) { from 0 } to strtoint(Edit2.text)
   { to 1000 } do { Loop for all  digit numbers }
   begin
+    Application.ProcessMessages;
     test := n; { Make "test" the work field }
     sum := test mod 10; { Put the low order digit of "test" into "sum" }
     test := test div 10; { shift "test" one digit to the right }
@@ -66,7 +74,12 @@ begin
                 { if (n =0) then }
                 { else }
                 Memo1.Lines.Add('The number ' + inttostr(n) + ' the sum is ' +
-                  inttostr(sum) + ' divisible by ' + Edit3.text)
+                  inttostr(sum) + ' divisible by ' + Edit3.text);
+                if Stop = True then
+                begin
+                  Memo1.Clear;
+                  break
+                end
 
                 // beep;
               end;
@@ -83,13 +96,40 @@ begin
             { else }
             Memo1.Lines.Add('The number ' + inttostr(n) + ' the sum is ' +
               inttostr(sum) + ' equal to ' + Edit3.text);
+            if Stop = True then
+            begin
+              Memo1.Clear;
+              break
+            end
           end;
           // beep;
         end; { end begin }
     end; { end procedure }
-
   end;
-  Memo1.Lines.Add('Total =' + inttostr(Memo1.Lines.Count - 1));
+  if Memo1.Lines.Count > 0 then
+  begin
+    Memo1.Lines.Add('Total =' + inttostr(Memo1.Lines.Count - 1));
+  end;
+  if Memo1.Lines.Count = 0 then
+  begin
+    Memo1.Lines.Add('You was Stop/clear, now for work press Start :)');
+  end;
+  RadioGroup1.Enabled := True;
+  Stop := False;
+
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  Stop := True;
+
+  Stop := True;
+  Memo1.Clear;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+halt
 end;
 
 end. { end program }

@@ -99,4 +99,22 @@ object Form1: TForm1
       'Sum  value ( = )')
     TabOrder = 5
   end
+  object Button2: TButton
+    Left = 38
+    Top = 136
+    Width = 153
+    Height = 25
+    Caption = 'Clear/Stop'
+    TabOrder = 6
+    OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 232
+    Top = 136
+    Width = 75
+    Height = 25
+    Caption = 'Exit'
+    TabOrder = 7
+    OnClick = Button3Click
+  end
 end
