@@ -1,0 +1,7 @@
+1.0 26/01/2017
+Created for RTN challenge
+1.1 24/05/2017
++Improvised   stop
++Algo choice
++Stop/clear
++Exit
