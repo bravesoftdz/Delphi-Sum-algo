@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Vcl.ExtCtrls;
+  Dialogs, StdCtrls, Vcl.ExtCtrls, Vcl.Imaging.jpeg;
 
 type
   TForm1 = class(TForm)
@@ -20,6 +20,7 @@ type
     RadioGroup1: TRadioGroup;
     Button2: TButton;
     Button3: TButton;
+    Image1: TImage;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
